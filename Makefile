@@ -4,8 +4,8 @@ all: help
 setup: setup-nvim
 	@echo "all setup tasks completed"
 
-.PHONY: hooks
-hooks:
+.PHONY: setup-hooks
+setup-hooks:
 	@chmod +x .github/hooks/*
 	@git config core.hooksPath .github/hooks
 
@@ -19,7 +19,7 @@ help:
 	@echo "Usage: make [command]"
 	@echo ""
 	@echo "Commands:"
-	@echo "  help       - Displays this help message."
-	@echo "  hooks      - Sets up Git hooks"
-	@echo "  setup      - Runs all setup tasks"
-	@echo "  setup-nvim - Sets up nvim configuration."
+	@echo "  help        - Displays this help message."
+	@echo "  setup-hooks - Sets up Git hooks"
+	@echo "  setup       - Runs all setup tasks"
+	@echo "  setup-nvim  - Sets up nvim configuration."
