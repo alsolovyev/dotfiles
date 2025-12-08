@@ -60,6 +60,11 @@ update-submodules:
 	@git submodule update --init --recursive
 	@echo "submodules initialized and updated"
 
+.PHONY: clean-submodules
+clean-submodules:
+	@git submodule deinit --all -f
+	@echo "submodules deinitialized"
+
 .PHONY: help
 help:
 	@echo "Usage: make [command]"
@@ -69,6 +74,7 @@ help:
 	@echo "  clean-alacritty   - Cleans up Alacritty terminal configuration"
 	@echo "  clean-nvim        - Cleans up nvim configuration"
 	@echo "  clean-starship    - Cleans up Starship configuration"
+	@echo "  clean-submodules  - Deinitializes all submodules"
 	@echo "  clean-tmux        - Cleans up Tmux configuration"
 	@echo "  help              - Displays this help message"
 	@echo "  setup             - Runs all setup tasks"
