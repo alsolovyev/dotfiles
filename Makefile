@@ -16,6 +16,7 @@ setup-alacritty:
 
 .PHONY: setup-nvim
 setup-nvim:
+	@git submodule update --init --recursive nvim
 	@ln -sfn $(PWD)/nvim ~/.config/nvim
 	@echo "nvim configuration linked to ~/.config/nvim"
 
@@ -26,6 +27,7 @@ setup-starship:
 
 .PHONY: setup-tmux
 setup-tmux:
+	@git submodule update --init --recursive tmux/plugins/catppuccin
 	@ln -sfn $(PWD)/tmux ~/.config/tmux
 	@echo "tmux configuration linked to ~/.config/tmux"
 
