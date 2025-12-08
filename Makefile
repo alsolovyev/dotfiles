@@ -55,6 +55,11 @@ clean-tmux:
 	@rm -rf ~/.config/tmux
 	@echo "tmux configuration unlinked"
 
+.PHONY: update-submodules
+update-submodules:
+	@git submodule update --init --recursive
+	@echo "submodules initialized and updated"
+
 .PHONY: help
 help:
 	@echo "Usage: make [command]"
@@ -72,3 +77,4 @@ help:
 	@echo "  setup-nvim        - Sets up nvim configuration"
 	@echo "  setup-starship    - Sets up Starship configuration"
 	@echo "  setup-tmux        - Sets up Tmux configuration"
+	@echo "  update-submodules - Initializes and/or updates submodules"
