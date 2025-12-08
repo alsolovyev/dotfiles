@@ -31,15 +31,44 @@ setup-tmux:
 	@ln -sfn $(PWD)/tmux ~/.config/tmux
 	@echo "tmux configuration linked to ~/.config/tmux"
 
+.PHONY: clean
+clean: clean-nvim clean-alacritty clean-starship clean-tmux
+	@echo "all cleanup tasks completed"
+
+.PHONY: clean-alacritty
+clean-alacritty:
+	@rm -rf ~/.config/alacritty
+	@echo "alacritty configuration unlinked"
+
+.PHONY: clean-nvim
+clean-nvim:
+	@rm -rf ~/.config/nvim
+	@echo "nvim configuration unlinked"
+
+.PHONY: clean-starship
+clean-starship:
+	@rm -f ~/.config/starship.toml
+	@echo "starship configuration unlinked"
+
+.PHONY: clean-tmux
+clean-tmux:
+	@rm -rf ~/.config/tmux
+	@echo "tmux configuration unlinked"
+
 .PHONY: help
 help:
 	@echo "Usage: make [command]"
 	@echo ""
 	@echo "Commands:"
-	@echo "  help            - Displays this help message"
-	@echo "  setup           - Runs all setup tasks"
-	@echo "  setup-alacritty - Sets up Alacritty terminal configuration"
-	@echo "  setup-hooks     - Sets up Git hooks"
-	@echo "  setup-nvim      - Sets up nvim configuration"
-	@echo "  setup-starship  - Sets up Starship configuration"
-	@echo "  setup-tmux      - Sets up Tmux configuration"
+	@echo "  clean             - Runs all cleanup tasks"
+	@echo "  clean-alacritty   - Cleans up Alacritty terminal configuration"
+	@echo "  clean-nvim        - Cleans up nvim configuration"
+	@echo "  clean-starship    - Cleans up Starship configuration"
+	@echo "  clean-tmux        - Cleans up Tmux configuration"
+	@echo "  help              - Displays this help message"
+	@echo "  setup             - Runs all setup tasks"
+	@echo "  setup-alacritty   - Sets up Alacritty terminal configuration"
+	@echo "  setup-hooks       - Sets up Git hooks"
+	@echo "  setup-nvim        - Sets up nvim configuration"
+	@echo "  setup-starship    - Sets up Starship configuration"
+	@echo "  setup-tmux        - Sets up Tmux configuration"
