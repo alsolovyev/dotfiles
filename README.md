@@ -7,6 +7,7 @@ This repository contains configuration files, scripts, and utilities for various
 - **Neovim**: a highly customized Neovim setup for development
 - **Alacritty**: configuration for the Alacritty terminal emulator
 - **Starship**: configuration for the Starship cross-shell prompt
+- **tmux**: configuration for the tmux terminal multiplexer
 
 ## Prerequisites
 
