@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+RED='\033[0;31m'
+NC='\033[0m'
+COMMIT_TYPES=("feat" "fix" "config" "docs" "style" "refactor" "test" "chore" "perf" "other")
+COMMIT_TYPES_regex=$(IFS="|"; echo "${COMMIT_TYPES[*]}")
+COMMIT_MSG=$(cat "$1")
+ACCEPTED_PREFIXES="^(${COMMIT_TYPES_regex}):"
+
+if ! echo "$COMMIT_MSG" | grep -qE "$ACCEPTED_PREFIXES"; then
+    echo -e "${RED}ERROR: Commit message must start with one of the following prefixes:"
+    echo -e "       ${COMMIT_TYPES_regex}${NC}"
+    exit 1
+fi
